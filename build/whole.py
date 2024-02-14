@@ -22,7 +22,7 @@ import wikipedia
 from wikipedia.exceptions import PageError
 import pyjokes
 import requests
-from tkinter.constants import DISABLED, NORMAL
+#from tkinter.constants import DISABLED, NORMAL
 
 #Variables-----------------------------------------------------------
 r = sr.Recognizer()
@@ -55,9 +55,14 @@ def callback(recognizer, audio):
 def start_recognizer():
     print("Waiting for a keyword...")
     r.listen_in_background(source, callback)
-    time.sleep(1000000)
+    #time.sleep(1000000)
     
-       
+def checkButtonState():
+    if button_1['state'] == tk.NORMAL:
+        button_1.config(state=tk.DISABLED)
+        start_recognizer()
+    else:
+        print("Button is disabled")
 
 def recognize_main():
     global stop_event  # declare stop_event as global
@@ -171,8 +176,8 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command= start_recognizer,
-    relief="groove"
+    command= checkButtonState,
+    relief="flat"
 )
 button_1.place(
     x=156.0,
@@ -225,6 +230,4 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 window.resizable(False, False)
-
-
 window.mainloop()
