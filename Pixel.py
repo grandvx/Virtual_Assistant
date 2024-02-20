@@ -11,6 +11,8 @@ import wikipedia
 from wikipedia.exceptions import PageError
 import pyjokes
 import requests
+import webbrowser
+import smtplib
 
 
 class AnimatedGUI:
@@ -97,6 +99,10 @@ def Speak(text):
     engine.say(text) # Λέει στην Python να μιλήσει τα περιεχόμενα του text
     engine.runAndWait() #Περιμένει να τελιώσει το πρόγραμμα την ομιλία και μετά συνεχίζει το πρόγραμμα
 
+def send_email(to,content):
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.
+
 def callback(recognizer, audio):
     try:
         speech_as_text = recognizer.recognize_sphinx(audio, keyword_entries=keywords)
@@ -146,6 +152,12 @@ def recognize_main():
         elif 'joke' in data:
             Speak(pyjokes.get_joke()) 
             print(pyjokes.get_joke())
+        elif "where is" in data:
+            ind = data.lower().split().index("is")
+            location = data.split()[ind + 1:]
+            url = "https://www.google.com/maps/place/" + "".join(location)
+            Speak =("This is where" + str(location) + " is.")
+            webbrowser.open(url)
         elif 'bye-bye' in data:
             Speak("Goodbye!")
             stop_event.set()  # Set the stop event to stop the voice recognition loop
