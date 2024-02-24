@@ -4,13 +4,16 @@
 
 from pathlib import Path
 
+#from Contacts_GUI import Contacts_win
+
 import tkinter as tk
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, ttk
+from Contacts_GUI import Contacts_Win
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/develloper uniwa/OneDrive/Υπολογιστής/Tkinter-Designer-master/build/MainGui/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/PIXEL/MainGui/assets/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -137,7 +140,7 @@ def Gui_Menu():
         image=button_image_5,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_5 clicked"),
+        command= Contacts_Win,
         relief="flat"
     )
     button_5.place(

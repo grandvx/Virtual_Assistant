@@ -10,7 +10,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, messageb
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Desktop/PIXEL/Functionalities/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/PIXEL/MainGui/assets/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -136,7 +136,7 @@ def Edit():
     )
 
     entry_image_1 = PhotoImage(
-        file=relative_to_assets("entry_1.png"))
+        file=relative_to_assets("Addentry_1.png"))
     entry_bg_1 = canvas.create_image(
         130.5,
         133.5,
@@ -157,7 +157,7 @@ def Edit():
     )
 
     entry_image_2 = PhotoImage(
-        file=relative_to_assets("entry_2.png"))
+        file=relative_to_assets("Addentry_2.png"))
     entry_bg_2 = canvas.create_image(
         130.5,
         236.5,
@@ -232,7 +232,7 @@ def Insert():
     )
 
     entry_image_1 = PhotoImage(
-        file=relative_to_assets("entry_1.png"))
+        file=relative_to_assets("Addentry_1.png"))
     entry_bg_1 = canvas.create_image(
         125.5,
         138.5,
@@ -253,7 +253,7 @@ def Insert():
     )
 
     entry_image_2 = PhotoImage(
-        file=relative_to_assets("entry_2.png"))
+        file=relative_to_assets("Addentry_2.png"))
     entry_bg_2 = canvas.create_image(
         125.5,
         219.5,
@@ -292,108 +292,108 @@ def Insert():
     Add_win.mainloop()
 
 
-###CONTACT WINDOW###
+########################CONTACT WINDOW#########################
+def Contacts_Win():
+    window = tk.Toplevel()
 
-window = Tk()
-
-window.geometry("575x377")
-window.configure(bg = "#FFFFFF")
-window.title('Contacts')
+    window.geometry("575x377")
+    window.configure(bg = "#FFFFFF")
+    window.title('Contacts')
 
 
-canvas = Canvas(
-    window,
-    bg = "#FFFFFF",
-    height = 377,
-    width = 575,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-)
+    canvas = Canvas(
+        window,
+        bg = "#FFFFFF",
+        height = 377,
+        width = 575,
+        bd = 0,
+        highlightthickness = 0,
+        relief = "ridge"
+    )
 
-canvas.place(x = 0, y = 0)
-canvas.create_rectangle(
-    0.0,
-    0.0,
-    575.0,
-    68.0,
-    fill="#3C4D27",
-    outline="")
+    canvas.place(x = 0, y = 0)
+    canvas.create_rectangle(
+        0.0,
+        0.0,
+        575.0,
+        68.0,
+        fill="#3C4D27",
+        outline="")
 
-canvas.create_text(
-    69.0,
-    20.0,
-    anchor="nw",
-    text="Contacts",
-    fill="#180847",
-    font=("HappyMonkey Regular", 24 * -1)
-)
+    canvas.create_text(
+        69.0,
+        20.0,
+        anchor="nw",
+        text="Contacts",
+        fill="#180847",
+        font=("HappyMonkey Regular", 24 * -1)
+    )
+    global Contacts_list
+    Contacts_list = Listbox(canvas,bg= "lemon chiffon", height= 13, width= 65,justify="center",
+                            selectbackground="dark goldenrod", relief="groove")
+    Contacts_list.place(x=90,y=100)
+    #canvas.create_rectangle(9.0,88.0,561.0,308.0,fill="#D9D9D9",outline="")
 
-Contacts_list = Listbox(bg= "lemon chiffon", height= 13, width= 65,justify="center",
-                        selectbackground="dark goldenrod", relief="groove")
-Contacts_list.place(x=90,y=100)
-#canvas.create_rectangle(9.0,88.0,561.0,308.0,fill="#D9D9D9",outline="")
+    #item = canvas.create_text(280.0,120.0,anchor="n",text="Empty List",fill="#180847",font=("Arial", 18))
 
-#item = canvas.create_text(280.0,120.0,anchor="n",text="Empty List",fill="#180847",font=("Arial", 18))
+    button_image_1 = PhotoImage(
+        file=relative_to_assets("Delete_Button.png"))
+    button_1 = Button(canvas,
+        image=button_image_1,
+        borderwidth=0,
+        highlightthickness=0,
+        command=Delete_Contact,
+        relief="flat"
+    )
+    button_1.place(
+        x=15.0,
+        y=328.0,
+        width=96.0,
+        height=40.0
+    )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_1 = Button(
-    image=button_image_1,
-    borderwidth=0,
-    highlightthickness=0,
-    command=Delete_Contact,
-    relief="flat"
-)
-button_1.place(
-    x=15.0,
-    y=328.0,
-    width=96.0,
-    height=40.0
-)
+    button_image_2 = PhotoImage(
+        file=relative_to_assets("Edit_Button.png"))
+    button_2 = Button(canvas,
+        image=button_image_2,
+        borderwidth=0,
+        highlightthickness=0,
+        command=Edit,
+        relief="flat"
+    )
+    button_2.place(
+        x=238.0,
+        y=328.0,
+        width=95.0,
+        height=41.0
+    )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
-    borderwidth=0,
-    highlightthickness=0,
-    command=Edit,
-    relief="flat"
-)
-button_2.place(
-    x=238.0,
-    y=328.0,
-    width=95.0,
-    height=41.0
-)
+    button_image_3 = PhotoImage(
+        file=relative_to_assets("Insert_Button.png"))
+    button_3 = Button(canvas,
+        image=button_image_3,
+        borderwidth=0,
+        highlightthickness=0,
+        command=Insert,### THIS FUNCTION GOES FROM CONTACT WINDOW TO ADD WINDOW ###
+        relief="flat"
+    )
+    button_3.place(
+        x=461.0,
+        y=328.0,
+        width=95.0,
+        height=40.0
+    )
 
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
-button_3 = Button(
-    image=button_image_3,
-    borderwidth=0,
-    highlightthickness=0,
-    command=Insert,### THIS FUNCTION GOES FROM CONTACT WINDOW TO ADD WINDOW ###
-    relief="flat"
-)
-button_3.place(
-    x=461.0,
-    y=328.0,
-    width=95.0,
-    height=40.0
-)
+    image_image_1 = PhotoImage(
+        file=relative_to_assets("Contacts_Image.png"))
+    image_1 = canvas.create_image(
+        34.0,
+        34.0,
+        image=image_image_1
+    )
 
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
-    34.0,
-    34.0,
-    image=image_image_1
-)
-
-window.resizable(False, False)
-window.mainloop()
+    window.resizable(False, False)
+    window.mainloop()
 
 
 
