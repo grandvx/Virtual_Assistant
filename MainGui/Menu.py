@@ -5,6 +5,9 @@ from toDoList import TodoListManager
 from player import MusicPlayer
 from settings import DeviceSettings
 from weather import WeatherApp
+from Eshops import Eshops
+from Contacts import Contacts_Win
+from Mail import Mail
 
 import tkinter as tk
 # Explicit imports to satisfy Flake8
@@ -12,7 +15,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, ttk
 import webbrowser
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:/Users/keray/Documents/pA/MainGui/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/MainGui/assets/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -139,7 +142,7 @@ def Gui_Menu():
         image=button_image_5,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_5 clicked"),
+        command=Contacts_Win,
         relief="flat"
     )
     button_5.place(
@@ -203,7 +206,7 @@ def Gui_Menu():
         image=button_image_9,
         borderwidth=0,
         highlightthickness=0,
-        command=open_skroutz,
+        command=Eshops,
         relief="flat"
     )
     button_9.place(
@@ -267,7 +270,7 @@ def Gui_Menu():
         image=button_image_13,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_13 clicked"),
+        command=Mail,
         relief="flat"
     )
     button_13.place(

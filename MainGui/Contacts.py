@@ -10,34 +10,34 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Label, messageb
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/PIXEL/MainGui/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/MainGui/assets_3/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 
-Contacts = {}
+#Contacts = {}
     
 def Add_Contact():
     # get the text from the entries(tkinter)
     name = entry_1.get()
     phone_number = entry_2.get()
     #add them to dictionary
-    Contacts[name] = phone_number
+    #Contacts[name] = phone_number
     ####Procedure for removing curly brackets {} and ''###
-    dict_output = Contacts.__str__()
-    dict_output = dict_output.replace('{','').replace('}','')
-    for name, phone_number in Contacts.items():
-        dict_output = f'{name} : {phone_number}'
-    Contacts_list.insert(tk.END,dict_output)
-    print(Contacts)
+    #dict_output = Contacts.__str__()
+    #dict_output = dict_output.replace('{','').replace('}','')
+    #for name, phone_number in Contacts.items():
+    output = f'{name} : {phone_number}'
+    Contacts_list.insert(tk.END,output)
+    #print(Contacts)
     #Show_Contacts()
     
-def Show_Contacts():
-    contacts_text = " "
-    for name,phone_number in Contacts.items():
-        contacts_text += f' {name} : {phone_number}\n'
+#def Show_Contacts():
+    #contacts_text = " "
+    #for name,phone_number in Contacts.items():
+        #contacts_text += f' {name} : {phone_number}\n'
     #canvas.itemconfig(item, text = contacts_text)
     #canvas.itemconfig(item, anchor = "nw")
         
@@ -51,13 +51,12 @@ def Delete_Contact():
 
     contact_info = Contacts_list.get(index)
 
-    for name, phonenumber in Contacts.items():
-        if name == contact_info:
-            Contacts.pop(index)
-            break
-
     Contacts_list.delete(index)
-    print(Contacts)
+    #for name, phonenumber in Contacts.items():
+        #if name == contact_info:
+            #Contacts.pop(index)
+            #break
+    #print(Contacts)
     #name = delete_entry.get()
     #if name in Contacts.keys():
         #messagebox.showinfo("Deletion","Contact has been deleted succesfully")
