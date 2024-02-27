@@ -8,6 +8,7 @@ from weather import WeatherApp
 from Eshops import Eshops
 from Contacts import Contacts_Win
 from Mail import Mail
+from CALLSSMS import CALLSMS
 
 import tkinter as tk
 # Explicit imports to satisfy Flake8
@@ -126,7 +127,7 @@ def Gui_Menu():
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_4 clicked"),
+        command=CALLSMS,
         relief="flat"
     )
     button_4.place(
