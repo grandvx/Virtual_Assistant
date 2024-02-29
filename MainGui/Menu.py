@@ -9,6 +9,7 @@ from Eshops import Eshops
 from Contacts import Contacts_Win
 from Mail import Mail
 from CALLSSMS import CALLSMS
+import subprocess
 
 import tkinter as tk
 # Explicit imports to satisfy Flake8
@@ -21,6 +22,9 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assi
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
+
+def OpenPDF():
+    subprocess.Popen('lelekas',shell=True)
 
 def Gui_Menu():
     Menu = tk.Toplevel()

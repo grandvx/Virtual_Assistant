@@ -4,6 +4,9 @@ from pathlib import Path
 import tkinter as tk
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+import subprocess
+import PyPDF2
+import webbrowser
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -13,6 +16,9 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assi
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def OpenPDF():
+    path = 'Help_Presenation.pdf'
+    subprocess.Popen([path],shell=True)
 
 window = tk.Tk()
 
@@ -89,7 +95,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=OpenPDF,
     relief="flat"
 )
 button_2.place(
