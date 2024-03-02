@@ -10,14 +10,14 @@ import webbrowser
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/MainGui/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/keray/Unity3d/Interactionhuman/Virtual_Assistant/MainGui/assets/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 def OpenPDF():
-    path = 'Help_Presenation.pdf'
+    path = r"C:/Users/keray/Unity3d/Interactionhuman/Virtual_Assistant/User Manual PIXEL.pdf"
     subprocess.Popen([path],shell=True)
 
 window = tk.Tk()

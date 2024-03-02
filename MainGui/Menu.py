@@ -17,7 +17,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, ttk
 import webbrowser
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/ilias/Documents/GitHub/Virtual_Assistant/MainGui/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C://Users/keray/Unity3d/Interactionhuman/Virtual_Assistant/MainGui/assets/frame0")
 
 
 def relative_to_assets(path: str) -> Path:
